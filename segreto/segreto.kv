@@ -1,0 +1,261 @@
+#:import AsyncImage kivy.uix.image.AsyncImage
+
+<Space@Label>:
+
+<BG@FloatLayout>:
+    canvas.before:
+        Color:
+            rgba: 0.176, 0.243, 0.314, 1.0
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<SegInput@TextInput>:
+    background_normal:'data/images/src/textinput.png'
+    background_active:'data/images/src/textinput_active.png'
+    background_disabled_normal:'data/images/src/textinput_disabled.png'
+    background_disabled_active:'data/images/src/textinput_disabled.png'
+    font_name: 'Lato-Regular.ttf'
+    font_size: '18sp'
+    cursor_color: 0.498, 0.549, 0.552,1.0
+    foreground_color: 0.204, 0.286, 0.369, 1.0
+    selection_color: 0.925, 0.941, 0.937, 0.5
+    padding: '16dp', '16dp'
+    halign:'justify'
+    border: 10,10,10,10
+
+<LoginInput@SegInput>:
+    multiline: False
+    allow_copy: False
+    background_disabled_normal:'data/images/src/logininput_disabled.png'
+    background_disabled_active:'data/images/src/logininput_disabled.png'
+
+<SegButton@Button>:
+    font_name: 'Lato-Bold.ttf'
+    font_size: '22sp'
+    border: 10,10,10,10
+    background_disabled_normal:'data/images/src/but_disabled.png'
+    background_disabled_down:'data/images/src/but_disabled.png'
+
+<SearchBox@BoxLayout>:
+    padding:'8dp'
+    orientation:'horizontal'
+    spacing:'8dp'
+    canvas.before:
+        Color:
+            rgba: 0.3,0.6,0.1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    TextInput:
+        hint_text:'Search'
+        font_name: 'Lato-Regular.ttf'
+        font_size: '18sp'
+        background_color:(0,0,0,0)
+        multiline:False
+    Image:
+        size_hint:None, None
+        size:'32dp','32dp'
+        source:'data/images/src/search.png'
+
+<Toast@AnchorLayout>:
+    size_hint:None,None
+    y:'-50dp'
+    size: '300dp','48dp'
+    anchor_x:'right'
+    canvas:
+        Color:
+            rgba: 0.910, 0.298, 0.239, 1.0
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: 10,10,10,10
+    Label:
+        id:label
+        font_size: '18sp'
+        font_name: 'Lato-Bold.ttf'
+    AnchorLayout:
+        size_hint:None, None
+        size:'48dp','48dp'
+        anchor_x:'center'
+        SegButton:
+            size_hint:None, None
+            size:'24dp', '24dp'
+            border:0,0,0,0
+            background_normal:'data/images/src/close.png'
+            background_down:'data/images/src/close_down.png'
+            on_release:root.exit(None)
+
+
+<IdeaTitleBar@BoxLayout>:
+    orientation:'horizontal'
+    but_edit:but_edit
+    but_del:but_del
+    Label:
+        id:lbl_date
+        text: '08:30 Aug 08 2016'
+        text_size: self.size
+        color: 0.404, 0.522, 0.549, 1.0
+        font_size: '15sp'
+        font_name: 'Lato-Semibold.ttf'
+        halign:'left'
+        valign:'middle'
+    Label:
+        id:lbl_idea_no
+        text: '#31'
+        size_hint_x:None
+        width:self.texture_size[0]
+        font_size: '30sp'
+        color: 0.404, 0.522, 0.549, 1.0
+        font_name: 'Lato-Heavy.ttf'
+    BoxLayout:
+        orientation:'horizontal'
+        spacing:'16dp'
+        Space:
+        SegButton:
+            id:but_del
+            size_hint:None, None
+            size:'36dp', '36dp'
+            border:8,8,8,8
+            background_normal:'data/images/src/but_del.png'
+            background_down:'data/images/src/but_del_down.png'
+            on_release:root.dispatch('on_del_pressed')
+        SegButton:
+            id:but_edit
+            size_hint:None, None
+            size:'36dp', '36dp'
+            border:8,8,8,8
+            background_normal:'data/images/src/but_edit.png'
+            background_down:'data/images/src/but_edit_down.png'
+            on_release:root.dispatch('on_edit_pressed')
+
+
+<IdeaWidget@StackLayout>:
+    orientation:'lr-tb'
+    padding:'16dp'
+    size_hint_y:None
+    height: self.minimum_height
+    canvas:
+        Color:
+            rgba: 0.925, 0.941, 0.937, 1.0
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: 10,10,10,10
+    IdeaTitleBar:
+        id:title_bar
+        size_hint_y:None
+        height: '36dp'
+        on_del_pressed:root.dispatch('on_delete')
+        on_edit_pressed:root.toggle_edit_mode()
+    Space:
+        size_hint_y:None
+        height:'16dp'
+    SegInput:
+        id:inp_idea
+        size_hint_y:None
+        height: self.minimum_height
+
+<IdeawidgetContainer@ScrollView>:
+    StackLayout:
+        id:container
+        size_hint_y:None
+        size_hint_x:1
+        height:self.minimum_height
+        orientation:'lr-tb'
+        padding:'16dp', '0dp','16dp','16dp'
+        spacing:'16dp'
+        # IdeaWidget:
+        # IdeaWidget:
+
+<TopBar@BoxLayout>:
+    orientation:'horizontal'
+    spacing:'16dp'
+    SegButton:
+        size_hint:None, None
+        size:'48dp', '48dp'
+        border:10,10,10,10
+        background_normal:'data/images/src/but_new.png'
+        background_down:'data/images/src/but_new_down.png'
+        on_release:root.dispatch('on_add_ideawidget')
+    Space:
+    # SearchBox:
+    #     width:'240dp'
+    #     size_hint_x:None
+    SegButton:
+        size_hint:None, None
+        size:'96dp', '48dp'
+        text:'Quit'
+        background_normal:'data/images/src/but_red.png'
+        background_down:'data/images/src/but_red_down.png'
+        on_release:root.dispatch('on_quit_pressed')
+
+<LoginGrid@BoxLayout>:
+    orientation:'vertical'
+    canvas:
+        Color:
+            rgba: 0.925, 0.941, 0.937, 1.0
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: 10,10,10,10
+    LoginInput:
+        id: inp_username
+        size_hint_y:None
+        height: self.minimum_height
+        hint_text: 'Username'
+        on_text:root.on_username(self.text)
+    Space:
+    LoginInput:
+        id:inp_password
+        size_hint_y:None
+        height: self.minimum_height
+        hint_text: 'Password'
+        on_text:root.on_password(self.text)
+    Space:
+    SegButton:
+        id:but_login
+        size_hint_y:None
+        height:'48dp'
+        text: 'Login'
+        background_normal:'data/images/src/but_turq.png'
+        background_down:'data/images/src/but_turq_down.png'
+        on_release:root.dispatch('on_login')
+
+<LoginScreen>:
+    BG:
+        LoginGrid:
+            id: grid
+            center: root.center
+            padding: '24dp'
+            size_hint: None, None
+            size: min(root.width - dp(32),dp(360)), '240dp'
+            on_login:root.try_login()
+        AsyncImage:
+            id:loader
+            center_x:root.center_x
+            top:grid.y + dp(-50)
+            size_hint:None, None
+            size:'100dp','100dp'
+            source:'data/images/ripple.gif'
+            anim_delay:0.05
+        Toast:
+            id:toast
+            width: min(root.width - dp(32), dp(300))
+            x:root.center_x - self.width // 2
+
+<IdeaScreen>:
+    BG:
+        BoxLayout:
+            orientation:'vertical'
+            TopBar:
+                size_hint_y:None
+                height:'64dp'
+                padding:'16dp','16dp','16dp','0dp'
+                on_add_ideawidget:root.new_idea()
+                on_quit_pressed:root.pre_quit_exec()
+            Space:
+                size_hint_y:None
+                height:'16dp'
+            IdeawidgetContainer:
+                id:idea_container
