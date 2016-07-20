@@ -89,4 +89,4 @@ ENV/
 .ropeproject
 
 # Seg files (.seg is recommended extension for saving crypted files)
-.seg
+*.seg
