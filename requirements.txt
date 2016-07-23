@@ -1,0 +1,4 @@
+simple-crypt
+jsonpickle
+kivy
+pycrypto
