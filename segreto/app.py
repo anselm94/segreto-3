@@ -1,6 +1,7 @@
 import os.path
 from kivy.config import Config
-Config.set('graphics','window_state', 'maximized')
+Config.set('graphics', 'window_state', 'maximized')
+Config.set('kivy', 'exit_on_escape', '0')
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, SwapTransition
 from segreto.uix.loginscreen import LoginScreen
@@ -10,11 +11,16 @@ import configparser
 import threading
 import jsonpickle
 import simplecrypt
+'''
+The App implementation
+'''
 
 
 class SegretoApp(App):
 
     def build(self):
+        self.icon = 'data/icon/segreto_icon.png' # Don't know why icon isn't set :(
+        self.title = 'Segreto 3'
         self.init()
         return self.screenmanager
 
@@ -76,7 +82,6 @@ class SegretoApp(App):
             self.password = ''
             self.crypt_file_path = ''
 
-
     def start_decrypt_thread(self, crypt_data, paswd):
         t = threading.Thread(target=self.decrypt_data,
                              args=(crypt_data, paswd))
@@ -84,13 +89,15 @@ class SegretoApp(App):
         t.start()
 
     def start_encrypt_thread(self, crypt_file_path, password, idea_collection):
-        t = threading.Thread(target=self.encrypt_store_data, args=(crypt_file_path, password, idea_collection))
+        t = threading.Thread(target=self.encrypt_store_data, args=(
+            crypt_file_path, password, idea_collection))
         t.daemon = True
         t.start()
 
     def quit(self, *args):
         idea_collection = self.ideascreen.idea_collection
-        self.start_encrypt_thread(self.crypt_file_path, self.password, idea_collection)
+        self.start_encrypt_thread(
+            self.crypt_file_path, self.password, idea_collection)
 
     def on_pause(self):
         return True
