@@ -1,6 +1,9 @@
-#Segreto 3
+#![Logo](data/icon/segreto_icon48.png) Segreto 3 
 A simple app for saving your ideas/ personal data secretely on your computer. It uses AES256 encryption to save your idea file locally, making it virtually impossible for any one to read your ideas/personal data, unless it's you or others know your password.
 
+![Login screen](login-screen.png)
+
+![Idea screen](idea-screen.png)
 
 ##Requirements
 
