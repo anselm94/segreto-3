@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Segreto 3
+Comment=A simple app for saving your ideas/ personal data secretely on your computer
+Exec=bash -c '"$(dirname "$1")"/main.py' dummy %k
+Icon=./data/icon/segreto_icon.svg
+Terminal=false
