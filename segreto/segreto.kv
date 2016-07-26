@@ -224,6 +224,13 @@
 
 <LoginScreen>:
     BG:
+        AsyncImage:
+            id:logo
+            center_x:root.center_x
+            top:grid.top + self.height + dp(40)
+            size_hint:None, None
+            size:'120dp','120dp'
+            source:'data/icon/segreto_icon.png'
         LoginGrid:
             id: grid
             center: root.center
