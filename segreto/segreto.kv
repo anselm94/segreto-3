@@ -15,7 +15,7 @@
     background_active:'data/images/src/textinput_active.png'
     background_disabled_normal:'data/images/src/textinput_disabled.png'
     background_disabled_active:'data/images/src/textinput_disabled.png'
-    font_name: 'Lato-Regular.ttf'
+    font_name: 'data/fonts/Lato-Regular.ttf'
     font_size: '18sp'
     cursor_color: 0.498, 0.549, 0.552,1.0
     foreground_color: 0.204, 0.286, 0.369, 1.0
@@ -31,7 +31,7 @@
     background_disabled_active:'data/images/src/logininput_disabled.png'
 
 <SegButton@Button>:
-    font_name: 'Lato-Bold.ttf'
+    font_name: 'data/fonts/Lato-Bold.ttf'
     font_size: '22sp'
     border: 10,10,10,10
     background_disabled_normal:'data/images/src/but_disabled.png'
@@ -49,7 +49,7 @@
             size: self.size
     TextInput:
         hint_text:'Search'
-        font_name: 'Lato-Regular.ttf'
+        font_name: 'data/fonts/Lato-Regular.ttf'
         font_size: '18sp'
         background_color:(0,0,0,0)
         multiline:False
@@ -73,7 +73,7 @@
     Label:
         id:label
         font_size: '18sp'
-        font_name: 'Lato-Bold.ttf'
+        font_name: 'data/fonts/Lato-Bold.ttf'
     AnchorLayout:
         size_hint:None, None
         size:'48dp','48dp'
@@ -97,7 +97,7 @@
         text_size: self.size
         color: 0.404, 0.522, 0.549, 1.0
         font_size: '15sp'
-        font_name: 'Lato-Semibold.ttf'
+        font_name: 'data/fonts/Lato-Semibold.ttf'
         halign:'left'
         valign:'middle'
     Label:
@@ -107,7 +107,7 @@
         width:self.texture_size[0]
         font_size: '30sp'
         color: 0.404, 0.522, 0.549, 1.0
-        font_name: 'Lato-Heavy.ttf'
+        font_name: 'data/fonts/Lato-Heavy.ttf'
     BoxLayout:
         orientation:'horizontal'
         spacing:'16dp'
