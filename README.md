@@ -1,4 +1,4 @@
-#![Logo](data/icon/segreto_icon48.png) Segreto 3
+# ![Logo](data/icon/segreto_icon48.png) Segreto 3
 A simple app for saving your ideas/ personal data secretely on your computer. It uses AES256 encryption to save your idea file locally, making it virtually impossible for any one to read your ideas/personal data, unless it's you or others know your password.
 
 Flat theme inspired by [Flat UI](http://designmodo.github.io/Flat-UI/)
@@ -9,27 +9,27 @@ Flat theme inspired by [Flat UI](http://designmodo.github.io/Flat-UI/)
 
 [![Segreto 3](youtube_link.png)](http://www.youtube.com/watch?v=uq20kiAlTw8)
 
-##Requirements
+## Requirements
 
 - [Python 3](https://www.python.org/)
 
 
-##Setup
+## Setup
 
-###1. Download
+### 1. Download
 
 - _Download_ the zip archive [here](https://github.com/anselm94/segreto-3/archive/master.zip)
 
 - _Unzip_ the archive
 
-###2. Install requirements
+### 2. Install requirements
 ```bash
 pip3 install -r requirements.txt
 ```
 
-##Usage
+## Usage
 
-###1. Create users
+### 1. Create users
 
 - _Open_ `settings.ini` file in the folder using your favourite text editor
 
@@ -41,28 +41,28 @@ file: <Path to save your secret file>
 ```
 - _Save_ `settings.ini` file
 
-#####Note
+##### Note
 
 - More than one user can be created in the `settings.ini` file
 
-###2. Run
+### 2. Run
 
 - Run `Segreto 3` app
 ```bash
 python3 main.py
 ```
 
-###3. Setup password
+### 3. Setup password
 
 - Type your user name in the login screen
 
 - Type your password in the login screen
 
-#####Note
+##### Note
 
 - Password will be setup and the encrypted secret file will be created, at the time of your first login.
 
-###4. Create/delete entries
+### 4. Create/delete entries
 
 - Create a new entry by clicking `+` button at top-left corner
 
@@ -70,19 +70,19 @@ python3 main.py
 
 - Modify an entry by clicking the `🖊` button
 
-###5. Quit
+### 5. Quit
 
 - Close the app by clicking `Quit` button
 
-#####Warning
+##### Warning
 
 - Always make sure you quit the app by clicking the `Quit` button at the top-right corner, else your entries will not get encrypted and saved!
 
-#####Note
+##### Note
 
 - _Login_ and _Logout_ will take some time. Explanation [here](https://github.com/andrewcooke/simple-crypt#speed), given by the [`simplecrypt`](https://pypi.python.org/pypi/simple-crypt) project, which this app uses for encryption/decryption purposes
 
-###6. Resetting password
+### 6. Resetting password
 
 - Use `password_reset.py` for resetting your password
 ```bash
@@ -90,7 +90,7 @@ python3 password_reset.py
 ```
 - Enter your username, the old password and new password. That's it! Password is reset!
 
-##Built with
+## Built with
 
 - Python 3
 - Pythonic libraries
@@ -98,11 +98,11 @@ python3 password_reset.py
     - [simplecrypto](https://github.com/andrewcooke/simple-crypt)
     - [jsonpickle](http://jsonpickle.github.io/)
 
-##Author
+## Author
 
 - [Merbin J Anselm](https://github.com/anselm94)
 
-##License
+## License
 ```
 MIT License
 
